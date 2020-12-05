@@ -16,9 +16,8 @@ namespace AdventOfCode2020
 			Day2.Problem2();
 
 			Console.WriteLine("Day3");
-			Day3 day3 = new Day3();
-			day3.Problem1();
-			day3.Problem2();
+			Day3.Problem1();
+			Day3.Problem2();
 
 			Console.WriteLine("Day4");
 			Day4.Problem1();
@@ -27,6 +26,10 @@ namespace AdventOfCode2020
 			Console.WriteLine("Day5");
 			Day5.Problem1();
 			Day5.Problem2();
+
+			Console.WriteLine("Day6");
+			Day6.Problem1();
+			Day6.Problem2();
 		}
 	}
 }

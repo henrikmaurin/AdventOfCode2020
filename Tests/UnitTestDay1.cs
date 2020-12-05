@@ -38,5 +38,18 @@ namespace Tests
 
 			Assert.AreEqual(241861950, result);
 		}
+
+		[TestMethod]
+		public void Problem1()
+		{
+			Assert.AreEqual(1018336, Day1.Problem1());
+		}
+
+		[TestMethod]
+		public void Problem2()
+		{
+			Assert.AreEqual(288756720, Day1.Problem2());
+		}
+
 	}
 }

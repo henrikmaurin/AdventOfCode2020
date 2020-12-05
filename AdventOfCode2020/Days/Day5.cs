@@ -7,13 +7,15 @@ namespace AdventOfCode2020.Days
 {
 	public class Day5
 	{
-		public static void Problem1()
+		public static int Problem1()
 		{
 			List<Seat> seats = File.ReadAllLines("Data/Day5.txt").Select(l => new Seat(l)).ToList();
-			Console.WriteLine(seats.Select(s => s.Id).Max());
+			int result = seats.Select(s => s.Id).Max();
+			Console.WriteLine(result);
+			return result;
 		}
 
-		public static void Problem2()
+		public static int Problem2()
 		{
 			List<Seat> seats = File.ReadAllLines("Data/Day5.txt").Select(l => new Seat(l)).ToList();
 
@@ -25,14 +27,15 @@ namespace AdventOfCode2020.Days
 					{
 						if (!seats.Where(s => s.Column == col && s.Row == row).Any())
 						{
-							Console.WriteLine(new Seat { Column = col, Row = row }.ToString());
+							Seat seat = new Seat { Column = col, Row = row };
+							Console.WriteLine(seat.ToString());
+							return seat.Id;
 						}
 					}
 				}
 			}
+			return -1;
 		}
-
-
 
 		public static Seat Decode(string code)
 		{

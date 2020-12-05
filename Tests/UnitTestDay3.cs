@@ -25,11 +25,7 @@ namespace Tests
 				".#..#...#.#"
 			};
 
-			Day3 day3 = new Day3();
-			day3.ReadMap(mapdata);
-
-			int result = day3.CountTrees(3, 1);
-
+			int result = Day3.CountTrees(3, 1, Day3.ReadMap(mapdata));
 			Assert.AreEqual(7, result);
 		}
 
@@ -51,16 +47,27 @@ namespace Tests
 				".#..#...#.#"
 			};
 
-			Day3 day3 = new Day3();
-			day3.ReadMap(mapdata);
+			Day3.Map map = Day3.ReadMap(mapdata);
 
-			int result = day3.CountTrees(1, 1);
-			result *= day3.CountTrees(3, 1);
-			result *= day3.CountTrees(5, 1);
-			result *= day3.CountTrees(7, 1);
-			result *= day3.CountTrees(1, 2);
+			int result = Day3.CountTrees(1, 1, map);
+			result *= Day3.CountTrees(3, 1, map);
+			result *= Day3.CountTrees(5, 1, map);
+			result *= Day3.CountTrees(7, 1, map);
+			result *= Day3.CountTrees(1, 2, map);
 
 			Assert.AreEqual(336, result);
+		}
+
+		[TestMethod]
+		public void Problem1()
+		{
+			Assert.AreEqual(286, Day3.Problem1());
+		}
+
+		[TestMethod]
+		public void Problem2()
+		{
+			Assert.AreEqual(3638606400, Day3.Problem2());
 		}
 	}
 

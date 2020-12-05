@@ -7,79 +7,83 @@ namespace AdventOfCode2020.Days
 {
 	public class Day3
 	{
-		private char[,] Map;
-		private int MapSizeX;
-		private int MapSizeY;
-
-		public void Problem1()
+		public static int Problem1()
 		{
 			List<string> mapData = File.ReadAllLines("Data/Day3.txt").ToList();
-			ReadMap(mapData);
-			int result = CountTrees(3, 1);
+			Map map = ReadMap(mapData);
+			int result = CountTrees(3, 1, map);
 
 			Console.WriteLine(result);
+			return result;
 		}
-		public void Problem2()
+		public static long Problem2()
 		{
 			List<string> mapData = File.ReadAllLines("Data/Day3.txt").ToList();
-			ReadMap(mapData);
+			Map map = ReadMap(mapData);
 
-			long result = CountTrees(1, 1);
-			result *= CountTrees(3, 1);
-			result *= CountTrees(5, 1);
-			result *= CountTrees(7, 1);
-			result *= CountTrees(1, 2);
+			long result = CountTrees(1, 1, map);
+			result *= CountTrees(3, 1, map);
+			result *= CountTrees(5, 1, map);
+			result *= CountTrees(7, 1, map);
+			result *= CountTrees(1, 2, map);
 
 			Console.WriteLine(result);
+			return result;
 		}
 
-
-		
-
-		public int CountTrees(int x, int y)
+		public static int CountTrees(int x, int y, Map map)
 		{
-			if (Map == null)
+			if (map == null)
 				return -1;
 
 			int xpos = 0;
 			int ypos = 0;
 			int trees = 0;
 
-			while (ypos < MapSizeY - 1)
+			while (ypos < map.MapSizeY - 1)
 			{
 				xpos += x;
 				ypos += y;
-				if (GetAt(xpos, ypos) == '#')
+				if (GetAt(xpos, ypos, map) == '#')
 					trees++;
 			}
 
 			return trees;
 		}
 
-		public char GetAt(int x, int y)
+		public static char GetAt(int x, int y, Map map)
 		{
-			return Map[x % MapSizeX, y];
+			return map.Data[x % map.MapSizeX, y];
 		}
 
-		public char[,] ReadMap(List<string> mapLines)
+		public static Map ReadMap(List<string> mapLines)
 		{
-			MapSizeX = mapLines[0].Count();
-			MapSizeY = mapLines.Count();
+			Map map = new Map();
 
-			Map = new char[MapSizeX, MapSizeY];
+			map.MapSizeX = mapLines[0].Count();
+			map.MapSizeY = mapLines.Count();
+
+			map.Data = new char[map.MapSizeX, map.MapSizeY];
 			int x = 0;
 			int y = 0;
 			foreach (string mapLine in mapLines)
 			{
 				foreach (char mapChar in mapLine)
 				{
-					Map[x, y] = mapChar;
+					map.Data[x, y] = mapChar;
 					x++;
 				}
 				y++;
 				x = 0;
 			}
-			return Map;
+			return map;
+		}
+
+		public class Map
+		{
+			public char[,] Data;
+			public int MapSizeX;
+			public int MapSizeY;
 		}
 	}
 }

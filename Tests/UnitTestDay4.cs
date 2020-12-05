@@ -86,5 +86,17 @@ namespace Tests
 
 			Assert.AreEqual(4, result);
 		}
+
+		[TestMethod]
+		public void Problem1()
+		{
+			Assert.AreEqual(170, Day4.Problem1());
+		}
+
+		[TestMethod]
+		public void Problem2()
+		{
+			Assert.AreEqual(103, Day4.Problem2());
+		}
 	}
 }

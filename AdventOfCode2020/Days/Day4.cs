@@ -10,24 +10,24 @@ namespace AdventOfCode2020.Days
 	public class Day4
 	{
 		private static List<string> validColors = new List<string> { "amb", "blu", "brn", "gry", "grn", "hzl", "oth" };
-		public static void Problem1()
+		public static int Problem1()
 		{
 			List<string> passportData = File.ReadAllLines("Data/Day4.txt").ToList();
 			List<Passport> passports = Parse(passportData);
 
 			int result = ValidPassports(passports);
 			Console.WriteLine(result);
-
+			return result;
 		}
 
-		public static void Problem2()
+		public static int Problem2()
 		{
 			List<string> passportData = File.ReadAllLines("Data/Day4.txt").ToList();
 			List<Passport> passports = Parse(passportData);
 
 			int result = ValidPassports(passports,true);
 			Console.WriteLine(result);
-
+			return result;
 		}
 
 

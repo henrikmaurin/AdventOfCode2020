@@ -80,5 +80,17 @@ namespace Tests
 			int result = Day2.ValidatePasswordsNew(passwords);
 			Assert.AreEqual(1, result);
 		}
+
+		[TestMethod]
+		public void Problem1()
+		{
+			Assert.AreEqual(625, Day2.Problem1());
+		}
+
+		[TestMethod]
+		public void Problem2()
+		{
+			Assert.AreEqual(391, Day2.Problem2());
+		}
 	}
 }

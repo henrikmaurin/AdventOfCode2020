@@ -7,25 +7,25 @@ namespace AdventOfCode2020.Days
 {
 	public class Day1
 	{
-		public static void Problem1()
+		public static int Problem1()
 		{
 			List<int> values = File.ReadAllLines("Data/Day1.txt").Select(v => int.Parse(v)).ToList();
 			int goalValue = 2020;
 
 			int result = FindAndMultiply(values, goalValue);
 			Console.WriteLine(result);
+			return result;
 		}
 
-		public static void Problem2()
+		public static int Problem2()
 		{
 			List<int> values = File.ReadAllLines("Data/Day1.txt").Select(v => int.Parse(v)).ToList();
 			int goalValue = 2020;
 
 			int result = FindAndMultiply3(values, goalValue);
 			Console.WriteLine(result);
+			return result;
 		}
-
-
 
 		public static int FindAndMultiply(List<int> values, int goalvalue)
 		{

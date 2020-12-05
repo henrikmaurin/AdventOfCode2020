@@ -39,5 +39,17 @@ namespace Tests
 			Day5.Seat resultSeat = new Day5.Seat(seatData);
 			Assert.AreEqual(357, resultSeat.Id);
 		}
+
+		[TestMethod]
+		public void Problem1()
+		{
+			Assert.AreEqual(801, Day5.Problem1());
+		}
+
+		[TestMethod]
+		public void Problem2()
+		{
+			Assert.AreEqual(597, Day5.Problem2());
+		}
 	}
 }

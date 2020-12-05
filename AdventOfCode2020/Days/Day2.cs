@@ -8,18 +8,20 @@ namespace AdventOfCode2020.Days
 {
 	public class Day2
 	{
-		public static void Problem1()
+		public static int Problem1()
 		{
 			List<string> passwords = File.ReadAllLines("Data/Day2.txt").ToList();
 			int result = ValidatePasswords(passwords);
 			Console.WriteLine(result);
+			return result;
 		}
 
-		public static void Problem2()
+		public static int Problem2()
 		{
 			List<string> passwords = File.ReadAllLines("Data/Day2.txt").ToList();
 			int result = ValidatePasswordsNew(passwords);
 			Console.WriteLine(result);
+			return result;
 		}
 
 		public static bool ValidatePassword(string passwordstring)
