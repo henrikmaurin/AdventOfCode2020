@@ -73,7 +73,7 @@ namespace AdventOfCode2020.Days
 				this.Row = seat.Row;
 			}
 
-			public string ToString()
+			public override string ToString()
 			{
 				return $"Row: {Row}, Column: {Column}, Id: {Id}";
 			}
