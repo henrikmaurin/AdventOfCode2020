@@ -5,3 +5,5 @@ https://adventofcode.com/2020/
 Main aim is readable and testable code.
 
 Code and tests written before input data is run
+
+Cleanup and refactoring done when tests accepted
