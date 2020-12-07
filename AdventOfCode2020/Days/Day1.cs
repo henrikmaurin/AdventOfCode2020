@@ -12,7 +12,7 @@ namespace AdventOfCode2020.Days
 			List<int> values = File.ReadAllLines("Data/Day1.txt").Select(v => int.Parse(v)).ToList();
 			int goalValue = 2020;
 
-			int result = FindAndMultiply(values, goalValue);
+			int result = FindAndMultiplyX(values, goalValue,2);
 			Console.WriteLine(result);
 			return result;
 		}
@@ -22,11 +22,12 @@ namespace AdventOfCode2020.Days
 			List<int> values = File.ReadAllLines("Data/Day1.txt").Select(v => int.Parse(v)).ToList();
 			int goalValue = 2020;
 
-			int result = FindAndMultiply3(values, goalValue);
+			int result = FindAndMultiplyX(values, goalValue,3);
 			Console.WriteLine(result);
 			return result;
 		}
 
+		/*
 		public static int FindAndMultiply(List<int> values, int goalvalue)
 		{
 			for (int i = 0; i < (values.Count - 1); i++)
@@ -57,6 +58,29 @@ namespace AdventOfCode2020.Days
 						if (value1 + value2 + value3 == goalvalue)
 							return value1 * value2 * value3;
 					}
+				}
+			}
+			return 0;
+		}
+		*/
+
+		public static int FindAndMultiplyX(List<int> values, int goalvalue, int depth, int withValue = 0)
+		{
+			if (depth > values.Count - 1)
+				return 0;
+
+			for (int i = 0; i <= values.Count - depth; i++)
+			{
+				if (depth == 1)
+				{
+					if (withValue + values[i] == goalvalue)
+						return values[i];
+				}
+				else
+				{
+					int val = FindAndMultiplyX(values.Skip(1).ToList(), goalvalue, depth - 1, withValue + values[i]);
+					if (val > 0)
+						return val * values[i];
 				}
 			}
 			return 0;
