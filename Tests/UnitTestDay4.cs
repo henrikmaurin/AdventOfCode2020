@@ -1,14 +1,16 @@
 ﻿using AdventOfCode2020.Days;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using static AdventOfCode2020.Days.Day4;
 
 namespace Tests
 {
 	[TestClass]
 	public class UnitTestDay4
 	{
-		[TestMethod]
-		public void Example1()
+		[TestMethod("Day 4, Part 1")]
+		[TestCategory("Example data")]
+		public void Part1()
 		{
 			List<string> passportData = new List<string>
 			{
@@ -27,15 +29,24 @@ namespace Tests
 				"iyr:2011 ecl:brn hgt:59in"
 			};
 
-			List<Day4.Passport> passports = Day4.Parse(passportData);
+			List<Passport> passports = Passport.ListFactory(passportData);
 
-			int result = Day4.ValidPassports(passports);
+			int result = ValidPassports(passports);
 
 			Assert.AreEqual(2, result);
 		}
 
-		[TestMethod]
-		public void Example21_InValid()
+		[TestMethod("Day 4, Part 1")]
+		[TestCategory("Answer")]
+		public void Answer1()
+		{
+			int answer = 170;
+			Assert.AreEqual(answer, Day4.Problem1());
+		}
+
+		[TestMethod("Day 4, Part 2")]
+		[TestCategory("Example data 1")]
+		public void Part2_InValid()
 		{
 			List<string> passportData = new List<string>
 			{
@@ -54,15 +65,16 @@ namespace Tests
 				"pid:3556412378 byr:2007"
 			};
 
-			List<Day4.Passport> passports = Day4.Parse(passportData);
+			List<Passport> passports = Passport.ListFactory(passportData);
 
-			int result = Day4.ValidPassports(passports, true);
+			int result = ValidPassports(passports, true);
 
 			Assert.AreEqual(0, result);
 		}
 
-		[TestMethod]
-		public void Example22_Valid()
+		[TestMethod("Day 4, Part 2")]
+		[TestCategory("Example data 2")]
+		public void Part2_Valid()
 		{
 			List<string> passportData = new List<string>
 			{
@@ -80,23 +92,19 @@ namespace Tests
 				"iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719"
 			};
 
-			List<Day4.Passport> passports = Day4.Parse(passportData);
+			List<Day4.Passport> passports = Passport.ListFactory(passportData);
 
 			int result = Day4.ValidPassports(passports, true);
 
 			Assert.AreEqual(4, result);
 		}
 
-		[TestMethod]
-		public void Problem1()
+		[TestMethod("Day 4, Part 2")]
+		[TestCategory("Answer")]
+		public void Answer2()
 		{
-			Assert.AreEqual(170, Day4.Problem1());
-		}
-
-		[TestMethod]
-		public void Problem2()
-		{
-			Assert.AreEqual(103, Day4.Problem2());
+			int answer = 103;
+			Assert.AreEqual(answer, Day4.Problem2());
 		}
 	}
 }
