@@ -1,14 +1,16 @@
 ﻿using AdventOfCode2020.Days;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using static AdventOfCode2020.Days.Day3;
 
 namespace Tests
 {
 	[TestClass]
 	public class UnitTestDay3
 	{
-		[TestMethod]
-		public void Example1()
+		[TestMethod("Day 3, Part 1")]
+		[TestCategory("Example data")]
+		public void Part1()
 		{
 			List<string> mapdata = new List<string>
 			{
@@ -25,11 +27,22 @@ namespace Tests
 				".#..#...#.#"
 			};
 
-			int result = Day3.CountTrees(3, 1, Day3.ReadMap(mapdata));
+			Map map = Map.MapFactory(mapdata);
+
+			int result = Day3.CountTrees(3, 1, map);
 			Assert.AreEqual(7, result);
 		}
 
-		[TestMethod]
+		[TestMethod("Day 3, Part 1")]
+		[TestCategory("Answer")]
+		public void Problem1()
+		{
+			int answer = 286;
+			Assert.AreEqual(answer, Day3.Problem1());
+		}
+
+		[TestMethod("Day 3, Part 2")]
+		[TestCategory("Example data")]
 		public void Example2()
 		{
 			List<string> mapdata = new List<string>
@@ -47,7 +60,7 @@ namespace Tests
 				".#..#...#.#"
 			};
 
-			Day3.Map map = Day3.ReadMap(mapdata);
+			Map map = Map.MapFactory(mapdata);
 
 			int result = Day3.CountTrees(1, 1, map);
 			result *= Day3.CountTrees(3, 1, map);
@@ -58,16 +71,12 @@ namespace Tests
 			Assert.AreEqual(336, result);
 		}
 
-		[TestMethod]
-		public void Problem1()
-		{
-			Assert.AreEqual(286, Day3.Problem1());
-		}
-
-		[TestMethod]
+		[TestMethod("Day 3, Part 2")]
+		[TestCategory("Answer")]
 		public void Problem2()
 		{
-			Assert.AreEqual(3638606400, Day3.Problem2());
+			long answer = 3638606400;
+			Assert.AreEqual(answer, Day3.Problem2());
 		}
 	}
 
