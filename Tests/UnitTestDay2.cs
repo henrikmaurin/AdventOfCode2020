@@ -7,8 +7,9 @@ namespace Tests
 	[TestClass]
 	public class UnitTestDay2
 	{
-		[TestMethod]
-		public void Example1()
+		[TestMethod("Day 2, Part 1")]
+		[TestCategory("Example data 1")]
+		public void Part1_1()
 		{
 			string password = "1-3 a: abcde";
 			bool result = Day2.ValidatePassword(password);
@@ -16,8 +17,9 @@ namespace Tests
 			Assert.IsTrue(result);
 		}
 
-		[TestMethod]
-		public void Example2()
+		[TestMethod("Day 2, Part 1")]
+		[TestCategory("Example data 2")]
+		public void Part1_2()
 		{
 			string password = "1-3 b: cdefg";
 			bool result = Day2.ValidatePassword(password);
@@ -25,8 +27,19 @@ namespace Tests
 			Assert.IsFalse(result);
 		}
 
-		[TestMethod]
-		public void Count()
+		[TestMethod("Day 2, Part 1")]
+		[TestCategory("Example data3")]
+		public void Part1_3()
+		{
+			string password = "2-9 c: ccccccccc";
+			bool result = Day2.ValidatePassword(password);
+
+			Assert.IsTrue(result);
+		}
+
+		[TestMethod("Day 2, Part 1")]
+		[TestCategory("Example data Count")]
+		public void Part1_Count()
 		{
 			List<string> passwords = new List<string>
 				{
@@ -39,9 +52,18 @@ namespace Tests
 			Assert.AreEqual(2, result);
 		}
 
+		[TestMethod("Day 2, Part 1")]
+		[TestCategory("Answer")]
+		public void Answer1()
+		{
+			int answer = 625;
+			Assert.AreEqual(answer, Day2.Problem1());
+		}
 
-		[TestMethod]
-		public void Example21()
+
+		[TestMethod("Day 2, Part 2")]
+		[TestCategory("Example data 1")]
+		public void Part2_1()
 		{
 			string password = "1-3 a: abcde";
 			bool result = Day2.ValidatePasswordNew(password);
@@ -49,8 +71,9 @@ namespace Tests
 			Assert.IsTrue(result);
 		}
 
-		[TestMethod]
-		public void Example22()
+		[TestMethod("Day 2, Part 2")]
+		[TestCategory("Example data 2")]
+		public void Part2_2()
 		{
 			string password = "1-3 b: cdefg";
 			bool result = Day2.ValidatePasswordNew(password);
@@ -58,8 +81,9 @@ namespace Tests
 			Assert.IsFalse(result);
 		}
 
-		[TestMethod]
-		public void Example23()
+		[TestMethod("Day 2, Part 2")]
+		[TestCategory("Example data 3")]
+		public void Part2_3()
 		{
 			string password = "2-9 c: ccccccccc";
 			bool result = Day2.ValidatePasswordNew(password);
@@ -67,8 +91,9 @@ namespace Tests
 			Assert.IsFalse(result);
 		}
 
-		[TestMethod]
-		public void Count2()
+		[TestMethod("Day 2, Part 2")]
+		[TestCategory("Example data Count")]
+		public void Part2_Count()
 		{
 			List<string> passwords = new List<string>
 				{
@@ -81,16 +106,12 @@ namespace Tests
 			Assert.AreEqual(1, result);
 		}
 
-		[TestMethod]
-		public void Problem1()
-		{
-			Assert.AreEqual(625, Day2.Problem1());
-		}
-
-		[TestMethod]
+		[TestMethod("Day 2, Part 1")]
+		[TestCategory("Answer")]
 		public void Problem2()
 		{
-			Assert.AreEqual(391, Day2.Problem2());
+			int answer = 391;
+			Assert.AreEqual(answer, Day2.Problem2());
 		}
 	}
 }

@@ -29,7 +29,8 @@ namespace Tests
 		[TestCategory("Answer")]
 		public void Answer1()
 		{
-			Assert.AreEqual(1018336, Day1.Problem1());
+			int answer = 1018336;
+			Assert.AreEqual(answer, Day1.Problem1());
 		}
 
 		[TestMethod("Day 1, Part 2")]
@@ -54,7 +55,8 @@ namespace Tests
 		[TestCategory("Answer")]
 		public void Answer2()
 		{
-			Assert.AreEqual(288756720, Day1.Problem2());
+			long answer = 288756720;
+			Assert.AreEqual(answer, Day1.Problem2());
 		}
 
 	}
