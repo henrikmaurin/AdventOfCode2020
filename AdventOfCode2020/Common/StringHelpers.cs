@@ -11,6 +11,12 @@ namespace AdventOfCode2020.Common
 			return outVal;
 		}
 
+		public static long ToLong(this string s)
+		{
+			long.TryParse(s, out long outVal);
+			return outVal;
+		}
+
 		public static List<string> JoinMultiline(this List<string> data, string joinchar)
 		{
 			StringBuilder builder = new StringBuilder();
