@@ -11,12 +11,12 @@ namespace AdventOfCode2020.Days
 		{
 			List<string> data = File.ReadAllLines("Data/Day11.txt").ToList();
 
-			WaitingArea waitingArea = new WaitingArea();
-			waitingArea.Setup(data);
+			Ferry ferry = new Ferry();
+			ferry.Setup(data);
 
-			int loops = waitingArea.RunUntilStable();
+			int loops = ferry.RunUntilStable();
 
-			int result = waitingArea.Occupied;
+			int result = ferry.Occupied;
 			Console.WriteLine(result);
 
 			return result;
@@ -26,20 +26,20 @@ namespace AdventOfCode2020.Days
 		{
 			List<string> data = File.ReadAllLines("Data/Day11.txt").ToList();
 
-			WaitingArea waitingArea = new WaitingArea();
-			waitingArea.Setup(data);
+			Ferry ferry = new Ferry();
+			ferry.Setup(data);
 
-			int loops = waitingArea.RunUntilStable2();
+			int loops = ferry.RunUntilStable2();
 
-			int result = waitingArea.Occupied;
+			int result = ferry.Occupied;
 			Console.WriteLine(result);
 
 			return result;
 		}
 
-		public class WaitingArea
+		public class Ferry
 		{
-			private char[] _waitingArea;
+			private char[] _seatingArea;
 			private int _sizeX;
 			private int _sizeY;
 
@@ -51,7 +51,7 @@ namespace AdventOfCode2020.Days
 				List<char> temp = new List<char>();
 				foreach (string row in data)
 					temp.AddRange(row);
-				_waitingArea = temp.ToArray();
+				_seatingArea = temp.ToArray();
 			}
 
 			public int RunUntilStable()
@@ -80,13 +80,13 @@ namespace AdventOfCode2020.Days
 					for (int x = 0; x < _sizeX; x++)
 					{
 						char next = CheckVisible(x, y, 1, 4);
-						char current = _waitingArea[y * _sizeX + x];
+						char current = _seatingArea[y * _sizeX + x];
 						if (next != current)
 							changed = true;
 						nextArea[y * _sizeX + x] = next;
 					}
 
-				_waitingArea = nextArea;
+				_seatingArea = nextArea;
 				return changed;
 			}
 
@@ -98,21 +98,21 @@ namespace AdventOfCode2020.Days
 					for (int x = 0; x < _sizeX; x++)
 					{
 						char next = CheckVisible(x, y);
-						char current = _waitingArea[y * _sizeX + x];
+						char current = _seatingArea[y * _sizeX + x];
 						if (next != current)
 							changed = true;
 						nextArea[y * _sizeX + x] = next;
 					}
 
-				_waitingArea = nextArea;
+				_seatingArea = nextArea;
 				return changed;
 			}
 
-			public int Occupied { get => _waitingArea.Where(w => w == '#').Count(); }
+			public int Occupied { get => _seatingArea.Where(w => w == '#').Count(); }
 
 			private char CheckVisible(int x, int y, int maxLength = int.MaxValue, int threshold = 5)
 			{
-				char seat = _waitingArea[y * _sizeX + x];
+				char seat = _seatingArea[y * _sizeX + x];
 
 				if (seat == '.')
 					return '.';
@@ -148,8 +148,8 @@ namespace AdventOfCode2020.Days
 				y += dy;
 				while (x >= 0 && y >= 0 && x < _sizeX && y < _sizeY && maxLength-- > 0)
 				{
-					if (_waitingArea[y * _sizeX + x] != '.')
-						return _waitingArea[y * _sizeX + x];
+					if (_seatingArea[y * _sizeX + x] != '.')
+						return _seatingArea[y * _sizeX + x];
 					x += dx;
 					y += dy;
 				}
@@ -163,7 +163,7 @@ namespace AdventOfCode2020.Days
 				{
 					for (int x = 0; x < _sizeX; x++)
 					{
-						Console.Write(_waitingArea[y * _sizeX + x]);
+						Console.Write(_seatingArea[y * _sizeX + x]);
 					}
 					Console.WriteLine();
 				}

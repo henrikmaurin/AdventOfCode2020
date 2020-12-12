@@ -25,12 +25,12 @@ namespace Tests
 				"L.LLLLL.LL"
 			};
 
-			WaitingArea waitingArea = new WaitingArea();
-			waitingArea.Setup(testData);
-			int rounds = waitingArea.RunUntilStable();
+			Ferry erry = new Ferry();
+			erry.Setup(testData);
+			int rounds = erry.RunUntilStable();
 
 			Assert.AreEqual(5, rounds);
-			Assert.AreEqual(37, waitingArea.Occupied);
+			Assert.AreEqual(37, erry.Occupied);
 
 		}
 
@@ -52,12 +52,12 @@ namespace Tests
 				"L.LLLLL.LL"
 			};
 
-			WaitingArea waitingArea = new WaitingArea();
-			waitingArea.Setup(testData);
-			int rounds = waitingArea.RunUntilStable2();
+			Ferry ferry = new Ferry();
+			ferry.Setup(testData);
+			int rounds = ferry.RunUntilStable2();
 
 			Assert.AreEqual(6, rounds);
-			Assert.AreEqual(26, waitingArea.Occupied);
+			Assert.AreEqual(26, ferry.Occupied);
 
 		}
 	}
