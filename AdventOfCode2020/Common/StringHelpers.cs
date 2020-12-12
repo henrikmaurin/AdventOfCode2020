@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AdventOfCode2020.Common
@@ -35,6 +37,14 @@ namespace AdventOfCode2020.Common
 				strings.Add(builder.ToString().Trim());
 
 			return strings;
+		}
+
+		public static List<string> SplitOnNewline(this string me)
+		{
+			return me.Split(
+			new[] { "\r\n", "\r", "\n" },
+			StringSplitOptions.None
+			).ToList();
 		}
 	}
 }
