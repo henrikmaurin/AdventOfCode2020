@@ -19,6 +19,11 @@ namespace AdventOfCode2020.Common
 			return outVal;
 		}
 
+		public static bool IsNumber(this string s)
+		{
+			return long.TryParse(s, out long result);				
+		}
+
 		public static List<string> JoinMultiline(this List<string> data, string joinchar)
 		{
 			StringBuilder builder = new StringBuilder();
