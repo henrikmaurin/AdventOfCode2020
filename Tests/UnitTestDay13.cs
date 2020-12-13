@@ -1,5 +1,4 @@
-﻿using AdventOfCode2020.Days;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using static AdventOfCode2020.Days.Day13;
 
@@ -100,6 +99,18 @@ namespace Tests
 			long result = buslines.FindSequence2(IdStrings);
 
 			Assert.AreEqual(1202161486, result);
+		}
+
+		[TestMethod("Day 13, Part 2")]
+		[TestCategory("Example 5")]
+		public void Example8()
+		{
+			List<string> IdStrings = new List<string> { "7", "13", "x", "x", "59", "x", "31", "19" };
+
+			BusLines buslines = new BusLines();
+			long result = buslines.FindSequence2(IdStrings);
+
+			Assert.AreEqual(1068781, result);
 		}
 
 	}
