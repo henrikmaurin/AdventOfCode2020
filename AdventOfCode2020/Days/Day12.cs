@@ -30,11 +30,8 @@ namespace AdventOfCode2020.Days
 
 		public class Navigation
 		{
-			private int _facing = 0; // 0Eeast, 1=North, 2=West, 3=South;
 			private long _posX = 0;
 			private long _posY = 0;
-			private int[] moveVectorX = { 1, 0, -1, 0 };
-			private int[] moveVectorY = { 0, -1, 0, 1 };
 
 			private Waypoint _waypoint;
 
@@ -69,6 +66,7 @@ namespace AdventOfCode2020.Days
 
 			public long RunInstructions(List<string> instructions)
 			{
+				SetWaypoint(1, 0);
 				foreach (string instruction in instructions)
 				{
 					Decode(instruction);
@@ -105,17 +103,12 @@ namespace AdventOfCode2020.Days
 						_posX -= value;
 						break;
 					case "R":
-						_facing -= value / 90;
-						_facing += 4;
-						_facing %= 4;
-						break;
 					case "L":
-						_facing += value / 90;
-						_facing %= 4;
+						Rotate(instruction);
 						break;
 					case "F":
-						_posX += moveVectorX[_facing] * value;
-						_posY += moveVectorY[_facing] * value;
+						_posX += _waypoint.X * value;
+						_posY += _waypoint.Y * value;
 						break;
 				}
 			}
