@@ -19,6 +19,12 @@ namespace AdventOfCode2020.Common
 			return outVal;
 		}
 
+		public static ulong ToUlong(this string s)
+		{
+			ulong.TryParse(s, out ulong outVal);
+			return outVal;
+		}
+
 		public static bool IsNumber(this string s)
 		{
 			return long.TryParse(s, out long result);				
