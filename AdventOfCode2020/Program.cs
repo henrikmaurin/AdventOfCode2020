@@ -62,6 +62,10 @@ namespace AdventOfCode2020
 			Console.WriteLine("Day 14");
 			Day14.Problem1();
 			Day14.Problem2();
+
+			Console.WriteLine("Day 15");
+			Day15.Problem1();
+			Day15.Problem2();
 		}
 
 	}
