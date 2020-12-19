@@ -13,6 +13,12 @@ namespace AdventOfCode2020.Common
 			return outVal;
 		}
 
+		public static int ToInt(this char c)
+		{
+			int.TryParse(c.ToString(), out int outVal);
+			return outVal;
+		}
+
 		public static long ToLong(this string s)
 		{
 			long.TryParse(s, out long outVal);
@@ -27,7 +33,12 @@ namespace AdventOfCode2020.Common
 
 		public static bool IsNumber(this string s)
 		{
-			return long.TryParse(s, out long result);				
+			return long.TryParse(s, out long result);
+		}
+
+		public static bool IsNumber(this char c)
+		{
+			return long.TryParse(c.ToString(), out long result);
 		}
 
 		public static List<string> JoinMultiline(this List<string> data, string joinchar)
